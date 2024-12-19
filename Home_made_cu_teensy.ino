@@ -19,6 +19,7 @@ float time1 = 0 ;
 long vfo_rx  = 16001000; 
 long bfo     =  9001000;
 long freq_rx = vfo_rx - bfo ;
+int  beat_tone = 600 ;
 
 void setup() {
     Serial1.begin(9600);
@@ -35,11 +36,9 @@ void setup() {
 
 
       // SET TX Frecuency    
-      //si5351.set_freq(  2100000000,SI5351_CLK0); 
-      //si5351.set_freq(  2300000000,SI5351_CLK2); 
-      //si5351.set_freq(1400000000ULL, SI5351_CLK0);
-      //si5351.drive_strength(SI5351_CLK2, SI5351_DRIVE_2MA);
-      //si5351.output_enable(SI5351_CLK2, 0); // 1 = enabled, 0 = disabled -> toggling 0/1 does not alter set frequency 
+      si5351.set_freq(  freq_rx,SI5351_CLK2); 
+      si5351.drive_strength(SI5351_CLK2, SI5351_DRIVE_2MA);
+      si5351.output_enable(SI5351_CLK2, 0); // 1 = enabled, 0 = disabled -> toggling 0/1 does not alter set frequency 
 }
 
 void loop() {
@@ -51,8 +50,11 @@ void loop() {
     Serial1.write(0xff);
     Serial1.write(0xff);
     Serial1.write(0xff);
-    si5351.set_freq((vfo_rx + newPosition) * 100ULL, SI5351_CLK0);
-    Serial.println( (freq_rx + newPosition) * 100ULL);
+    si5351.set_freq((vfo_rx + newPosition + beat_tone) * 100ULL, SI5351_CLK0); // Set Clock 0 to generate RX output, for 7 Mhz that would be 16 Mhz plus 600 Hz audio tone.
+    si5351.set_freq(((vfo_rx + newPosition) - bfo) * 100ULL, SI5351_CLK2);                      // Set Clock 2 to generate TX output which is freq_rx
+    Serial.println( (freq_rx + newPosition + beat_tone) * 100ULL);
+    Serial.println( (vfo_rx + newPosition - bfo ) * 100ULL);
+
     }
     
     // Led blink only, using Delta time not delay function !
