@@ -5,19 +5,15 @@
 #include <Wire.h>
 #include "si5351.h"
 #define Si_5351_crystal 25000000 //Si5351 on board crystal frequency
-Si5351 si5351;
+
 Adafruit_MCP4725 MCP4725;
-
-long calibration_constant = 8000; //constant will adjust for errors in the 25 MHz crystal master clock
-uint64_t SetFreq;
-uint32_t TargetFreq, AddFreq;
-int const LED = 13;
-byte Byte1, Byte2, Byte3, Byte4, Byte5, Byte6, Byte7;
-
+Si5351 si5351;
 Encoder myEnc(5, 6);
+int const LED = 13;
+long calibration_constant = 8000; //constant will adjust for errors in the 25 MHz crystal master clock
 long oldPosition  = -999;
 int led = 13;
-bool x ;
+bool led_bol;
 int dac = 300 ;
 float time1 = 0 ;
 long vfo_rx  = 16001000; 
@@ -61,8 +57,8 @@ void loop() {
     
     // Led blink only, using Delta time not delay function !
     if (millis() - time1 >= 100 ){  
-        digitalWrite(led, x);
+        digitalWrite(led, led_bol);
         time1 = millis();
-        x = !x ;
+        led_bol = !led_bol ;
     }
 }
