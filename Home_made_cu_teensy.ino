@@ -1,5 +1,5 @@
 // Warning ! MCP4725 DAC has only 2 addresses available, unfortunately one of it is the same as Si5351
-// Work in progress to use distinct wire, wire1, wire2 i2c bus to avoid this issue !
+// Work in progress to use distinct wire, wire1, wire2 i2c bus to avoid this issue in order to add a secondary DAC !
 #include <Encoder.h>
 #include <Adafruit_MCP4725.h>
 #include <Wire.h>
