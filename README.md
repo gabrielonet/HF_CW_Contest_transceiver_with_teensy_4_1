@@ -6,6 +6,6 @@ https://yo8rxp.com/home-made-transceiver-rxp2/
 <li>Teensy controller for logic
 <li>Teensy + audio shield as Hilbert DSP for LSB / USB rejection
 <li>// N1MM is expecting a fixed number of characters, if lower or higher, it is stalling. 
-<li>// so a trailing or leading zeroes is to be implemented to set that fized lenght
+<li>// so a trailing or leading zeroes is to be implemented to set that fixed lenght
 <li>// Serial data is not reliable until a CTS, RTS signaling low level is implemented
 <li>// If using just blind RX and TX only, it is prone to errors, so a higger baud rate is needed ... To be fixed  
