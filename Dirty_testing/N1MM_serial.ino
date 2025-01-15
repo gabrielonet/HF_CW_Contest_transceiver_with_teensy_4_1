@@ -2,7 +2,7 @@
 // N1MM is expecting a fixed number of characters, if lower or higher, is stalling. 
 // So, a trailing or leading zeroes is to be implemented to set that fixed lenght
 // This is a dirty code, will be refined and implemented into main code
-// Too many IF conditions, gotta time out those IF to detrmine if "IF{}" decisions are making the code slow !
+// Too many IF conditions, gotta set time out traps to detrmine if "IF{}" decisions are making the code slow !
 
 int old_millis ;
 int x = 5 ;
