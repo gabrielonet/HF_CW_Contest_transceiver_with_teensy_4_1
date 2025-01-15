@@ -1,8 +1,7 @@
 // Emulating Elecraft K3S transceiver CAT codes
 // N1MM is expecting a fixed number of characters, if lower or higher, is stalling. 
-// so a trailing or leading zeroes is to be implemented to set that fized lenght
-// Serial data is not reliable until a CTS, RTS low level is implemented
-// If using just blind RX and TX only it is prone to errors, so a higher baud rate is needed ... To be fixed  
+// so a trailing or leading zeroes is to be implemented to set that fixed lenght
+
 int old_millis ;
 int x = 5 ;
 String freq = "00014175000" ;
