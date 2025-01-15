@@ -1,6 +1,7 @@
 // Emulating Elecraft K3S transceiver CAT codes
 // N1MM is expecting a fixed number of characters, if lower or higher, is stalling. 
-// so a trailing or leading zeroes is to be implemented to set that fixed lenght
+// So, a trailing or leading zeroes is to be implemented to set that fixed lenght
+// This is a dirty code, will be refined and implemented into main code
 
 int old_millis ;
 int x = 5 ;
