@@ -3,7 +3,7 @@
 // So, a trailing or leading zeroes is to be implemented to set that fixed lenght
 // This is a dirty code, will be refined and implemented into main code
 // Too many IF conditions, gotta set time out traps to detrmine if "IF{}" decisions are making the code slow !
-
+// I am so tired, but only 50 old here... gotta stop procrastinating !
 int old_millis ;
 int x = 5 ;
 String freq = "00014175000" ;
